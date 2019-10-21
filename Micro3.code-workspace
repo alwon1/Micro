@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"C_Cpp.clang_format_sortIncludes": true,
+		"C_Cpp.default.includePath": ["./Libs/User/**","${relativeFileDirname}/**"],
+		"C_Cpp.default.systemIncludePath": ["./Libs/System/**"]
+	}
+}

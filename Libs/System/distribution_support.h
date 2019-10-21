@@ -1,0 +1,15 @@
+#ifdef _DISTRIBUTE_CODE
+#pragma CODE_SEG DISTRIBUTE
+#endif
+
+#ifdef _DISTRIBUTE_CONST
+#pragma CONST_SEG CONST_DISTRIBUTE
+#endif
+
+#ifdef _DISTRIBUTE_DATA
+#pragma DATA_SEG DATA_DISTRIBUTE
+#endif
+
+#ifndef __AUTOMATIC_DISTRIBUTION__
+#define __AUTOMATIC_DISTRIBUTION__
+#endif
