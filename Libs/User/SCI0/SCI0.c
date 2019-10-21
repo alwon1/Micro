@@ -60,6 +60,23 @@ unsigned char SCI0_RxChar(void) //Non-blocking; returns NULL if no new valid cha
 	}
 	return 0;
 }
+/*char * SCI0_RxString(void)
+{
+	int x;
+	x=0;
+	while (1)
+	{
+		if(SCI0_RxChar()=='\r'){
+			if (SCI0_RxChar()=='\n')
+			{
+				break;
+			}
+			
+		}
+	}
+	
+	return;
+} */
 void SCI0_TxString(char *str)
 {
 	char x;
