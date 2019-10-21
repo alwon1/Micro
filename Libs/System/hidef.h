@@ -16,7 +16,7 @@ extern "C" {
 /**** Version for MC68HC12 */
 #ifdef __HC12__ /* not for XGATE */
 
-#include "default2.sgm"
+//#include "default2.sgm"
 
 #ifdef  __BANKED__
 #define __MEDIUM__
@@ -115,7 +115,7 @@ extern "C" {
 /* assumes a linker version of at least V5.0.10 */
 extern char __SEG_END_SSTACK[];
 /*lint -estring(961, "'#/##' operator used") , MISRA 19.3 ADV, '#' is used in HLI as an operator - see pragma NO_STRING_CONSTR above */
-#define INIT_SP_FROM_STARTUP_DESC() __asm LDS #__SEG_END_SSTACK;
+//#define INIT_SP_FROM_STARTUP_DESC() __asm LDS #__SEG_END_SSTACK;
 /*lint +estring(961, "'#/##' operator used") */
 
 
