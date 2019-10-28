@@ -31,7 +31,7 @@ void Ryg_Sel_On(rygLed_t Leds)
 }
 void Ryg_Sel_Off(rygLed_t Leds)
 {
-	PT1AD1 &= ~(Leds & (Red | Yellow | Green));
+	PT1AD1 &= !(Leds & (Red | Yellow | Green));
 	return;
 }
 void Ryg_Set(rygLed_t Leds)
