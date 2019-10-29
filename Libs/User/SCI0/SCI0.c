@@ -80,7 +80,6 @@ unsigned char SCI0_RxChar(void) //Non-blocking; returns NULL if no new valid cha
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 void SCI0_ReadLine(char **buff)
 {
@@ -92,8 +91,6 @@ void SCI0_ReadLine(char **buff)
 		*buff[i] = Rxbuff[Rx_Data_Start++];
 	}
 }
-=======
->>>>>>> parent of 4597260... done the lab
 =======
 >>>>>>> parent of 4597260... done the lab
 =======
