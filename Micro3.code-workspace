@@ -8,6 +8,11 @@
 		"C_Cpp.clang_format_sortIncludes": true,
 		"C_Cpp.default.includePath": ["${workspaceFolder}/Libs/User/**","${relativeFileDirname}/**"],
 		"C_Cpp.default.systemIncludePath": ["${workspaceFolder}/Libs/System/**"],
-		"C_Cpp.default.defines": ["__HC12__"]
+		"C_Cpp.default.defines": [
+			"__HC12__"
+		],
+		"files.associations": {
+			"derivative.h": "c"
+		}
 	}
 }
