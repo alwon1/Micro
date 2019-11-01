@@ -12,7 +12,9 @@
 			"__HC12__"
 		],
 		"files.associations": {
-			"derivative.h": "c"
+			"derivative.h": "c",
+			"stdlib.h": "c",
+			"7seg.h": "c"
 		}
 	}
 }
