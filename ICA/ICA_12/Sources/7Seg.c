@@ -1,5 +1,6 @@
 #include "7Seg.h"
 #include "derivative.h"
+#include "Util.h"
 #define write(mode)                                                 \
 	PORTA = (mode) == 0 ? (PORTA & 0xFC) : ((PORTA & 0xFE) | 0x02); \
 	PORTA |= 0x01;
@@ -88,7 +89,7 @@ void SevSeg_Top4(unsigned int val)
 	unsigned char i;
 	//unsigned int val =val1 ;
 
-	val = HEXTODEC(val);
+	val = Util_Binary_To_BCD_uI(val);
 
 	for (i = 0; i < 4; i++)
 	{
@@ -113,23 +114,6 @@ void SevSeg_Bot4(unsigned int val)
 	}
 	return;
 }
-unsigned int HEXTODEC(unsigned int val)
-{
-	//unsigned char i=0;
-	unsigned int t = 0;
-	unsigned int res = 0;
-	t = (val % 10);
-	res += t;
-	//val -= t;
-	t = ((val % 100) - val % 10) / 10;
-	res += t << 4;
-	//val -= t;
-	t = ((val % 1000) - val % 100) / 100;
-	res += t;
-	//val -= t;
-	t = ((val % 10000) - val % 1000) / 100;
-	res += t;
 
-	return res;
-}
+
 void SevSeg_dChar(unsigned char, unsigned char);
