@@ -103,6 +103,8 @@ void LCD_Char(unsigned char ch)
 }
 void LCD_Pos(unsigned char Row, unsigned char Col)
 {
+	x = Col;
+			y = Row;
 	if (Col > 19)
 	{
 		return;
@@ -110,6 +112,7 @@ void LCD_Pos(unsigned char Row, unsigned char Col)
 	switch (Row)
 	{
 		case 0:
+
 			LCD_Addr(Col);
 			break;
 
