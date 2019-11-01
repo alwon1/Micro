@@ -1,0 +1,1 @@
+unsigned int Util_Binary_To_BCD_uI(unsigned int val);
