@@ -14,7 +14,8 @@
 		"files.associations": {
 			"derivative.h": "c",
 			"stdlib.h": "c",
-			"7seg.h": "c"
+			"7seg.h": "c",
+			"time.h": "c"
 		}
 	}
 }

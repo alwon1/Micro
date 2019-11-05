@@ -42,8 +42,8 @@ void Sleep_ms(unsigned int iTime)
     TC0 = TCNT + 125;
     for (iCount = 0; iCount < iTime; iCount++)
     {
-        TFLG1 |= 1;
-        while (TFLG1 & 1);
-        TC0+=125;
+        TFLG1 = 1;
+        while (TFLG1_C0F == 0);
+        TC0 += 125;
     }
 }
