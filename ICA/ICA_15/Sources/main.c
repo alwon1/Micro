@@ -4,6 +4,7 @@
 #include <hidef.h>      /* common defines and macros */
 
 void repdelay(void);
+void bl(void);
 void main(void)
 {
   /* put your own code here */
@@ -33,7 +34,7 @@ void main(void)
       Timer_Init8us();
       while (!(Switch_Raw() & Mid))
       {
-        Sleep_ms(100);
+        bl();
       }
       break;
 
@@ -46,7 +47,7 @@ void main(void)
     case 3:
       Timer_Init_125ns();
       while (!(Switch_Raw() & Mid))
-        Sleep_ms(100);
+        bl();
       break;
 
     default:
@@ -61,7 +62,21 @@ void repdelay(void)
   int i;
   for (i = 0; i < 100; i++)
   {
-    Sleep_ms(1);
+    TFLG1 = 1;
+    while (TFLG1_C0F == 0)
+      ;
+    TC0 = TCNT + 100;
   }
   return;
+}
+void bl(void)
+{
+  int i;
+  for (i = 0; i < 100; i++)
+  {
+    TFLG1 = 1;
+    while (TFLG1_C0F == 0)
+      ;
+    TC0 += 100;
+  }
 }
