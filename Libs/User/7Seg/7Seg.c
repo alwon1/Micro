@@ -103,7 +103,7 @@ void SevSeg_Top4(unsigned int val)
 void SevSeg_Bot4(unsigned int val)
 {
 	unsigned char i;
-
+	val = Util_Binary_To_BCD_uI(val);
 	for (i = 0; i < 4; i++)
 	{
 		PORTB = Hex | Run | BankA | (7 - i);

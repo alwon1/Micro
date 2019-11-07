@@ -15,7 +15,8 @@
 			"derivative.h": "c",
 			"stdlib.h": "c",
 			"7seg.h": "c",
-			"time.h": "c"
+			"time.h": "c",
+			"hidef.h": "c"
 		}
 	}
 }
