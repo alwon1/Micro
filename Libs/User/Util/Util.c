@@ -1,10 +1,10 @@
 
 //this is a macro fo Binary to hex functions to use as they can all be dfined using a varient of this
-#define _M_Util_Binary_To_BCD(val, res)             \
-    char i;                                         \
-    result = val % 10;                              \
-    for (i = 1; i < sizeof(val) * 2; i++)           \
-    {                                               \
+#define _M_Util_Binary_To_BCD(val, res)                  \
+    char i;                                              \
+    result = val % 10;                                   \
+    for (i = 1; i < sizeof(val) * 2; i++)                \
+    {                                                    \
         result += ((val / (10 * (10* i)) % 10) << 4 * i; \
     }
 
@@ -28,7 +28,7 @@ unsigned int Util_Binary_To_BCD_uI(unsigned int val)
 unsigned char Util_Binary_To_BCD_uC(unsigned char val)
 {
     unsigned char result;
-  //  _M_Util_Binary_To_BCD(val, result);
+    //  _M_Util_Binary_To_BCD(val, result);
     return result;
 }
 //This is an internal macro which is used in the
@@ -70,6 +70,16 @@ char Util_Str_To_Ch(char *str)
     _M_Util_Str_To_Bin(result, str);
 
     return result;
+}
+char Util_ch_To_Ch(char ch)
+{
+    //char result = 0;
+    if (ch >= '0' && ch <= '9')
+    {
+        return ch - '0';
+    }
+
+    return 0xff;
 }
 
 int Util_Str_To_In(char *str)

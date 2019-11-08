@@ -66,17 +66,21 @@ void _Sev_SegBaseSendchar(unsigned char pos, unsigned char num, unsigned char co
 	PORTB = ((coding & (Hex | Nodecode)) == 0 ? (mode & ~full) : (coding & (Hex | Nodecode | BankA | Run))) | (pos & 0x07); //follow specified then default to mode set
 	writeCtl();
 
-	PORTB = 0x80 | (num & 0x0F);
+	PORTB =  (num & 0x8F);//allow decimal to be passed
 	WriteDat();
 	return;
 }
 //send based on current mode
 void SevSeg_Char(unsigned char pos, unsigned char num)
 {
+	_Sev_SegBaseSendchar(pos, 0x80|num, mode);//disable decimal
+	return;
+}
+void SevSeg_CharDecEn(unsigned char pos, unsigned char num)
+{
 	_Sev_SegBaseSendchar(pos, num, mode);
 	return;
 }
-
 void SevSeg_BlChar(unsigned char pos)
 {
 	//0x80 so no decimal
