@@ -5,6 +5,7 @@
 #include "..\VSderive/VSderive.h"
 #endif
 #include "./Switch.h"
+
 void Switch_Init(void) //enables all switches
 {
 	ATD1DIEN1 |= 0x1F;
