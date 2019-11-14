@@ -36,7 +36,7 @@ void LCD_Init(void)
 	clearPK();
 	LCD_Ctrl(lines2 | LCDdatalength8 | setFunction);
 	LCD_Ctrl(0x01); //clear display
-	LCD_Ctrl(0x0F); //turn on display and curser
+	LCD_Ctrl(0x0C); //turn on display and curser //oxof is blink on  0x0e turns of blink but has underline 0x0c is nither
 	LCD_Ctrl(0x06); //increment address and write left to right
 	return;
 }

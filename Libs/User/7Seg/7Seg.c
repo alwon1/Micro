@@ -118,6 +118,19 @@ void SevSeg_Bot4(unsigned int val)
 	}
 	return;
 }
-
+void SevSeg_Bot4H(unsigned int val)
+{
+	unsigned char i;
+	//val = Util_Binary_To_BCD_uI(val);
+	for (i = 0; i < 4; i++)
+	{
+		PORTB = Hex | Run | BankA | (7 - i);
+		writeCtl();
+		PORTB = (val >> (4 * i)) | 0x80;
+		WriteDat();
+		//_Sev_SegBaseSendchar(i, val & (0x000F << 4 * i), mode|Hex);
+	}
+	return;
+}
 
 void SevSeg_dChar(unsigned char, unsigned char);

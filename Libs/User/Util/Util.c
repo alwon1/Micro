@@ -85,7 +85,33 @@ char Util_ch_To_Ch(char ch)
 int Util_Str_To_In(char *str)
 {
     int result = 0;
-    _M_Util_Str_To_Bin(result, str);
+    char Neg = 1;
+    unsigned char i = 0;
+
+        /*blow through white space*/
+    while (str[i] == ' ' || str[i] == '\t')
+        i++;
+
+            /*is this neg?*/
+    if (str[i] == '-')
+    {
+        Neg = -1;
+        i++;
+    } /*gop through all avalible numbers*/
+    for (i = i; i < 255; i++)
+    { /*NOTE: No Early exit on overflow*/
+        if (str[i] >= '0' && str[i] <= '9')
+        {
+            result *= 10;
+            result += (str[i] - '0');
+            continue;
+        }
+
+        /*its not a number so we bale and return what we have so far*/
+        else
+            break;
+    }
+    result *= Neg;
 
     return result;
 }
