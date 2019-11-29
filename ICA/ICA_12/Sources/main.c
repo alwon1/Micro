@@ -2,10 +2,10 @@
 #include <hidef.h>      /* common defines and macros */
 //#define interrupt
 //#define VectorNumber_Vsci0
+#include "7Seg.h"
 #include "Delay.h"
 #include "LCD.h"
 #include "SCI0.h"
-#include "7Seg.h"
 void _Vsci0_RxItr(void);
 void SlowTxt(char *);
 void PTJStart(void);
@@ -49,30 +49,29 @@ void SlowTxt(char *str)
   do
   {
     Delay_C(200);
-   // if (str[x] == '\n')
-     // LCD_Pos(++row, 0);
+    // if (str[x] == '\n')
+    // LCD_Pos(++row, 0);
     //else
-      LCD_Char(str[x++]);
+    LCD_Char(str[x++]);
   } while (str[x]);
 }
 interrupt VectorNumber_Vportj void PJInterupt(void)
 {
-  static unsigned int val =0;
-  if(PIFJ_PIFJ0)
-  {
-    PIFJ_PIFJ0 = 1;
-    val = val<9999? val-1:9999;
-    SevSeg_Top4(val) ;
-  //SevSeg_Set4DecU(--val);
-  }
+  volatile static unsigned int val = 0;
   if (PIFJ_PIFJ1)
   {
-    PIFJ_PIFJ1 =1;
-    val = val<9999? val+1:9999;
-   SevSeg_Top4(val) ;
+    PIFJ_PIFJ1 = 1;
+    val = val == 0 ? 9999 : val - 1;
+    //SevSeg_Top4(val) ;
+    //SevSeg_Set4DecU(--val);
   }
-  
-  
+  if (PIFJ_PIFJ0)
+  {
+    PIFJ_PIFJ0 = 1;
+    val = val == 9999 ? 0: val + 1;
+    //SevSeg_Top4(val) ;
+  }
+  SevSeg_Top4(val);
 }
 void PTJStart(void)
 {

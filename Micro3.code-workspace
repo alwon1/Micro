@@ -6,13 +6,26 @@
 	],
 	"settings": {
 		"C_Cpp.clang_format_sortIncludes": true,
-		"C_Cpp.default.includePath": ["${workspaceFolder}/Libs/User/**","${relativeFileDirname}/**"],
-		"C_Cpp.default.systemIncludePath": ["${workspaceFolder}/Libs/System/**"],
+		"C_Cpp.default.cStandard": "c89",
+		"C_Cpp.default.includePath": [
+			"${workspaceFolder}/Libs/User/**",
+			"${relativeFileDirname}/**"
+		],
+		"C_Cpp.default.systemIncludePath": [
+			"${workspaceFolder}/Libs/System/**"
+		],
 		"C_Cpp.default.defines": [
 			"__HC12__"
 		],
 		"files.associations": {
-			"derivative.h": "c"
-		}
+			"derivative.h": "c",
+			"stdlib.h": "c",
+			"7seg.h": "c",
+			"time.h": "c",
+			"hidef.h": "c",
+			"sci0.h": "c"
+		},
+		"C_Cpp.default.intelliSenseMode": "gcc-x86",
+		"C_Cpp.experimentalFeatures": "Enabled"
 	}
 }
