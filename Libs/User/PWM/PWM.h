@@ -1,12 +1,16 @@
 
 typedef enum
 {
-    PWM0_RGB_B = 0x01,
-    PWM1_RGB_G = 0x01 << 1,
-    PWM2 = 0x01 << 2,
-    PWM3_LCD_BK = 0x01 << 3,
-    PWM4_RGB_R = 0x01 << 4,
-    PWM5 = 0x01 << 5,
-    PWM6_SPK = 0x01 << 6,
-    PWM7 = 0x01 << 7
-} PWM_Channel;ggg
+    PWM0_RGB_B = 0,
+    PWM1_RGB_G,
+    PWM2,
+    PWM3_LCD_BK,
+    PWM4_RGB_R,
+    PWM5,
+    PWM6_SPK,
+    PWM7
+} PWM_Channel;
+void PWM_Init(void);
+void PWM_SetFrequency(PWM_Channel channel, unsigned long frequency);
+void PWM_SetDutyHalfCh(PWM_Channel channel, unsigned char duty);
+void PWM_SetDutyHalf(PWM_Channel channel, float duty);

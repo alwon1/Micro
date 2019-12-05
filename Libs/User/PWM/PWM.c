@@ -10,7 +10,6 @@
 void PWM_Init(void)
 {
     PWMPOL = ~0;
-    
 }
 
 void PWM_SetFrequency(PWM_Channel channel, unsigned long frequency)
@@ -21,18 +20,20 @@ void PWM_SetFrequency(PWM_Channel channel, unsigned long frequency)
     //need to finish this
     //int clockscale = clock/frequency/255
 
-    PWMPER0 = clock / frequency;
+    *((&PWMPER0) + channel) = clock / frequency;
     //50% duty cycle
-    PWMDTY0 = PWMPER0 >> 1;
-    PWME |= channel;
+    *((&PWMDTY0) + channel) = *((&PWMPER0) + channel) >> 1;
+    PWME |= 0x01 << channel;
     return;
 }
 //dont forget to set PWM up as it deafults to inverted output
 //Sets PWM Output to a Half Percentage point
 void PWM_SetDutyHalfCh(PWM_Channel channel, unsigned char duty)
 {
-    PWMPER0 = 200;
-    PWMDTY0 = duty;
+    //test for backlight
+    *((&PWMPER0) + channel) = 200;
+    *((&PWMDTY0) + channel) = duty;
+    PWME |= 0x01 << channel;
     return;
 }
 
