@@ -2,13 +2,13 @@
 #include "delay.h"
 #include "derivative.h" /* derivative-specific definitions */
 #include <hidef.h>      /* common defines and macros */
-
+#include "I2C.h"
 void main(void)
 {
   /* put your own code here */
   int x, y, z = 0;
   PWM_Init();
-
+  IIC0_ReadByte()
   //EnableInterrupts;
 
   for (;;)

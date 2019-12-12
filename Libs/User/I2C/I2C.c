@@ -6,7 +6,7 @@
 
 #include <hidef.h>
 #include "derivative.h"
-#include "IIC0_Lib.h"
+#include "I2C.h"
 
 void IIC0_Init(void)
 {

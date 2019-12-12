@@ -14,3 +14,4 @@ void PWM_Init(void);
 void PWM_SetFrequency(PWM_Channel channel, unsigned long frequency);
 void PWM_SetDutyHalfCh(PWM_Channel channel, unsigned char duty);
 void PWM_SetDutyHalf(PWM_Channel channel, float duty);
+void PWM_SetDutyHalfBtCh(PWM_Channel channel, unsigned char duty);

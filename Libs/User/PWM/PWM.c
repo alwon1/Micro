@@ -36,6 +36,14 @@ void PWM_SetDutyHalfCh(PWM_Channel channel, unsigned char duty)
     PWME |= 0x01 << channel;
     return;
 }
+void PWM_SetDutyHalfBtCh(PWM_Channel channel, unsigned char duty)
+{
+    //test for backlight
+    *((&PWMPER0) + channel) = 0xff;
+    *((&PWMDTY0) + channel) = duty;
+    PWME |= 0x01 << channel;
+    return;
+}
 
 void PWM_SetDutyHalf(PWM_Channel channel, float duty)
 {
