@@ -40,7 +40,7 @@ extern "C" {
 
 /*lint -estring(961, "'#/##' operator used") , MISRA 19.3 ADV, '#' is used in HLI as an operator - see pragma NO_STRING_CONSTR above */
 #define HALT_AND_QUIT      HALTX(#32)
-#define EnableInterrupts   {__asm CLI;}
+#define EnableInterrupts   {__asm ("CLI");}
 #define DisableInterrupts  {__asm SEI;}
 #define __XGFUN_MANG2(name) __X_ ## name        /* indirection, necessary if name is a macro. */
 #define __XGFUN_MANG(name) __XGFUN_MANG2(name)  /* XGATE function names are mangled with a __X_ for the HC12 (so the XGATE can use its own ANSI library functions) */
