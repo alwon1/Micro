@@ -14,12 +14,12 @@ void IIC0_Init(void)
   
   DDRJ|=0b10000000;       //manually access SCL
   
-  asm LDX #20;            //twenty times 5 us is enough to clock out 10 bits
-  asm BigLoop:
-    asm LDAA #10;
-    asm DBNE A,*;         //5 us in a toggle for 100kHz clk
+  __asm("LDX #20;            //twenty times 5 us is enough to clock out 10 bits");
+  __asm("BigLoop:");
+    __asm("LDAA #10;");
+    __asm("DBNE A,*;         //5 us in a toggle for 100kHz clk");
     PTJ^=0b10000000;      //toggle SCL
-  asm DBNE X,BigLoop;
+  __asm("DBNE X,BigLoop;");
 
   DDRJ&=0b01111111;       //free up SCL
 
